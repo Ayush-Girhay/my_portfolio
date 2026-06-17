@@ -550,7 +550,57 @@ setTimeout(() => {
   });
 }, 100);
 
+if(window.innerWidth < 700){
 
+  const mobileProjects = [
+    {
+      title:'EventSphere',
+      image:'assets/eventsphere-1.png'
+    },
+    {
+      title:'EV Dynamic Pricing',
+      image:'assets/ev-dynamic-pricing.png'
+    },
+    {
+      title:'House Price Prediction',
+      image:'assets/house-price-prediction.png'
+    },
+    {
+      title:'RoboDog Quadruped Robot',
+      image:'assets/robodog-quadruped-robot.png'
+    }
+  ];
+
+  const mobileImg =
+    document.getElementById('mobileProjectImage');
+
+  const mobileTitle =
+    document.getElementById('mobileProjectTitle');
+
+  let current = 0;
+
+  setInterval(() => {
+
+    current =
+      (current + 1) % mobileProjects.length;
+
+    mobileImg.style.opacity = 0;
+
+    setTimeout(() => {
+
+      mobileImg.src =
+        mobileProjects[current].image;
+
+      mobileTitle.textContent =
+        mobileProjects[current].title;
+
+      mobileImg.style.opacity = 1;
+
+    },300);
+
+  },3000);
+
+}
 
 
 
