@@ -1342,10 +1342,10 @@ height:180px;
 
 @media(max-width:700px){
 
- #hero{
+#hero{
   height:auto !important;
   min-height:auto !important;
-  padding-top:120px !important;
+  padding-top:130px !important;
 }
 
   .hero-inner{
@@ -1361,8 +1361,7 @@ height:180px;
   }
 
   #hero-h1-wrap{
-  padding:25px 0 15px !important;
-  margin:0 !important;
+  padding:20px 0 20px !important;
 }
 
 }
