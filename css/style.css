@@ -1339,30 +1339,30 @@ height:180px;
 
 }
 
-@media(max-width:700px){
-
-  #marquee{
-    display:none !important;
-  }
-
-}
 
 @media(max-width:700px){
 
   #hero{
+    height:auto !important;
     min-height:auto !important;
-    padding-top:90px !important;
+    padding-top:80px !important;
   }
 
   .hero-inner{
+    flex:none !important;
     min-height:auto !important;
     justify-content:flex-start !important;
-    gap:20px !important;
+    gap:0 !important;
+    padding-bottom:20px !important;
+  }
+
+  .hero-h1{
+    margin:0 auto !important;
   }
 
   #hero-h1-wrap{
-    padding-top:0 !important;
-    margin-top:0 !important;
+    padding:0 !important;
+    margin:0 !important;
   }
 
 }
