@@ -105,8 +105,11 @@ const marqueeSection = document.getElementById('marquee');
 let marqueeOffset = 0;
 
 // ABOUT TEXT REVEAL
-const aboutText =
-"I am a builder at heart who enjoys transforming ideas into real-world solutions through AI/ML, Data Science, Data Analytics, and Full-Stack Development. I am passionate about developing intelligent systems, creating scalable applications, and extracting insights from data to solve meaningful problems. Driven by curiosity and a problem-solving mindset, I enjoy taking on complex challenges, thinking critically, and continuously learning new technologies. My goal is to create impactful products that combine innovation, technology, and exceptional user experiences.";
+const aboutText = `I am a builder at heart who loves turning ambitious ideas into impactful digital products. My work spans AI/ML, Data Science, Data Analytics, and Full-Stack Development, where I combine data-driven thinking with engineering expertise to create intelligent, scalable, and user-centric solutions.
+
+Whether it's training machine learning models, designing data-driven systems, or building end-to-end applications, I enjoy solving challenging problems and transforming complexity into simplicity. I am driven by curiosity, continuous learning, and the belief that technology should create tangible value for people and businesses.
+
+My mission is to build innovative products that not only leverage cutting-edge technology but also deliver exceptional user experiences and meaningful real-world impact.`;
 
 const aboutEl = document.getElementById('about-text');
 aboutEl.innerHTML = '';
@@ -389,18 +392,21 @@ projects.forEach((p, i) => {
 
 function updateProjectScales() {
   const cards = document.querySelectorAll('.proj-card');
-  const viewMiddle = window.innerHeight * 0.52;
 
   cards.forEach((card, index) => {
     const rect = card.parentElement.getBoundingClientRect();
-    const distance = Math.abs((rect.top + rect.height / 2) - viewMiddle) / window.innerHeight;
-    const active = distance < 0.62;
 
-    card.style.zIndex = 1;
-    card.style.opacity = '1';
-    card.style.transform = 'translate3d(0, 0, 0) scale(1)';
-    card.classList.toggle('is-stacked', false);
-    card.classList.toggle('is-active', active);
+    const progress = Math.max(
+      0,
+      Math.min(1, -rect.top / window.innerHeight)
+    );
+
+    const scale = 1 - (progress * 0.08);
+
+    card.style.transform =
+      `scale(${scale}) translateY(${progress * -30}px)`;
+
+    card.style.zIndex = cards.length - index;
   });
 }
 

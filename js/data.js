@@ -11,7 +11,7 @@ const expData = [
   {num:'01', name:'Tata Group - Forage', role:'GenAI-Powered Data Analytics Simulation - EDA, risk profiling, AI-driven collection strategies, business reporting.', period:'Jun 2023 - Jul 2023'},
   {num:'02', name:'Accenture - Forage', role:'Software Engineering Simulation - Architecture, secure coding, agile development, testing modules.', period:'Jun 2024 - Jul 2024'},
   {num:'03', name:'Deloitte - Forage', role:'Data Analytics Simulation - Forensic tech, Tableau dashboard, Excel-based data classification.', period:'Jun 2025 - Jul 2025'},
-  {num:'04', name:'Captain -Hockey IIT Roorkee', role:'NSO proficiency holder. Captain of institute hockey team, leading with discipline and strategy.', period:'Jul 2023 - Present'},
+  {num:'04', name:'Captain -Hockey IIT Roorkee', role:'NSO proficiency holder. Captain of institute hockey team, leading with discipline and strategy.', period:'MAY 2026 - Present'},
   {num:'05', name:'Member - MARS, IIT Roorkee', role:'Models & Robotics Section. CAD with SolidWorks & Fusion 360, AI/ML integration, robot prototyping.', period:'Jun 2024 - Present'},
 ];
 
@@ -33,7 +33,7 @@ const projects = [
 
   {
     id:'02',
-    cat:'AI & Data Science',
+    cat:'Machine Learning & Predictive Analytics',
     name:'EV Dynamic Pricing',
     desc:'Developed an AI-driven dynamic pricing system for EV charging stations using real-world charging session data. Built predictive models to forecast charging demand and dynamically adjust tariffs.',
     tech:['Python','Machine Learning','Pandas','NumPy','Scikit-Learn'],
@@ -48,7 +48,7 @@ const projects = [
 
   {
     id:'03',
-    cat:'Machine Learning',
+    cat:'Machine Learning & Predictive Modeling',
     name:'House Price Prediction',
     desc:'Built a multimodal machine learning model combining structured property data with satellite imagery for accurate house price prediction using explainable AI techniques.',
     tech:['Python','XGBoost','PCA','SHAP','Grad-CAM'],
@@ -63,7 +63,7 @@ const projects = [
 
   {
     id:'04',
-    cat:'Real-Time ML System',
+    cat:'Data Science & Optimization',
     name:'Dynamic Pricing Parking Lots',
     desc:'Designed a real-time pricing engine for urban parking lots using demand, traffic, occupancy, and competition signals to optimize utilization and revenue.',
     tech:['Python','Pathway','Pandas','NumPy','Bokeh'],
@@ -93,9 +93,9 @@ const projects = [
 
   {
     id:'06',
-    cat:'Systems & Networking',
+    cat:'Embedded Systems & Wireless Streaming',
     name:'Video Streaming Web Server',
-    desc:'Built a video streaming web server capable of handling client requests and delivering media content efficiently using networking and server-side programming concepts.',
+    desc:'Engineered an ESP32-CAM powered video streaming platform that delivered live video feeds over Wi-Fi, showcasing expertise in embedded systems, IoT, networking, and real-time communication.',
     tech:['Python','Socket Programming','Networking','HTTP','Multithreading'],
     live:null,
     repo:'#',
