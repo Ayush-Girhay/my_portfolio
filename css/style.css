@@ -1368,28 +1368,4 @@ height:180px;
   #hero-h1-wrap{
   padding:20px 0 20px !important;
 }
-
-.hero-h1{
-  text-shadow:
-    0 0 15px rgba(0,168,182,.6),
-    0 0 30px rgba(0,168,182,.4),
-    0 0 60px rgba(0,168,182,.25) !important;
-
-  animation:heroGlow 3s ease-in-out infinite;
-}
-
-@keyframes heroGlow{
-  0%,100%{
-    text-shadow:
-      0 0 15px rgba(0,168,182,.5),
-      0 0 30px rgba(0,168,182,.3);
-  }
-
-  50%{
-    text-shadow:
-      0 0 25px rgba(0,168,182,.8),
-      0 0 50px rgba(0,168,182,.5),
-      0 0 80px rgba(0,168,182,.3);
-  }
-}
 }
