@@ -83,7 +83,10 @@ const gifs2 = [
   'hero-celestia-preview-0yO3jXO8'
 ];
 function buildRow(el, names) {
-  const tripled = [...names,...names,...names];
+const tripled =
+  window.innerWidth < 700
+    ? [...names, ...names]
+    : [...names, ...names, ...names];
   tripled.forEach(n => {
     const d = document.createElement('div');
     d.className = 'marquee-tile';
@@ -442,16 +445,12 @@ function updateNav() {
 
 // MARQUEE TRANSFORM
 function updateMarquee() {
-
-  if(window.innerWidth < 700){
-    return;
-  }
-
-  const r = marqueeSection.getBoundingClientRect();
   const sectionTop = marqueeSection.offsetTop;
 
+  const speed = window.innerWidth < 700 ? 0.12 : 0.3;
+
   marqueeOffset =
-    (window.scrollY - sectionTop + window.innerHeight) * 0.3;
+    (window.scrollY - sectionTop + window.innerHeight) * speed;
 
   document.getElementById('row1').style.transform =
     `translateX(${marqueeOffset - 200}px)`;
