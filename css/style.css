@@ -1239,31 +1239,58 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
   display:none;
 }
 
-#astronaut-3d{
-  width:280px;
-  height:280px;
-}
-
 @media(max-width:700px){
 
   #mobile-mascot-section{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px 0 60px;
+    padding:0 0 70px;
+    margin-top:-40px;
+}
+
+  .mobile-mascot-wrap{
+    position:relative;
+    width:240px;
+    height:240px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
 
-  #astronaut-3d{
-    width:300px;
-    height:300px;
+  .mascot-glow{
+    position:absolute;
+
+    width:180px;
+height:180px;
+
+    border-radius:50%;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(0,168,182,.35),
+        transparent 70%
+      );
+
+   filter:blur(55px);
+
+    animation:
+      glowPulse 4s ease-in-out infinite;
+  }
+
+  .mobile-mascot{
+    width:190px;
+    position:relative;
+    z-index:2;
 
     filter:
-      drop-shadow(
-        0 0 40px rgba(0,168,182,.35)
-      );
-  }
+      drop-shadow(0 0 25px rgba(0,168,182,.25));
 
-}
+    animation:
+      astronautFloat 4s ease-in-out infinite;
+  }
 
   @keyframes astronautFloat{
 
@@ -1293,7 +1320,7 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
     }
   }
 
-
+}
 
 @media(max-width:700px){
 
