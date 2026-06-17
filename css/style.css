@@ -1346,3 +1346,23 @@ height:180px;
   }
 
 }
+
+@media(max-width:700px){
+
+  #hero{
+    min-height:auto !important;
+    padding-top:90px !important;
+  }
+
+  .hero-inner{
+    min-height:auto !important;
+    justify-content:flex-start !important;
+    gap:20px !important;
+  }
+
+  #hero-h1-wrap{
+    padding-top:0 !important;
+    margin-top:0 !important;
+  }
+
+}
