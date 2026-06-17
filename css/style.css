@@ -1349,12 +1349,13 @@ height:180px;
 }
 
   .hero-inner{
-    flex:none !important;
-    min-height:auto !important;
-    justify-content:flex-start !important;
-    gap:0 !important;
-    padding-bottom:20px !important;
-  }
+  flex:none !important;
+  min-height:auto !important;
+  justify-content:flex-start !important;
+  gap:0 !important;
+  padding-top:50px !important;
+  padding-bottom:20px !important;
+}
 
   .hero-h1{
     margin:0 auto !important;
