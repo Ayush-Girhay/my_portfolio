@@ -1018,14 +1018,14 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
   }
   #hero{
     min-height:100svh;
-    padding-top:145px;
+    padding-top:105px;
 }
   .hero-inner{
     min-height:calc(100svh - 104px);
     padding:0 22px 30px;
   }
   #hero-h1-wrap{
-    padding:75px 0 60px;
+    padding:25px 0 40px;
 }
   .hero-h1{
     font-size:13vw;
