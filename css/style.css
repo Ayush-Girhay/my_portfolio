@@ -1288,9 +1288,26 @@ height:180px;
     filter:
       drop-shadow(0 0 25px rgba(0,168,182,.25));
 
-    animation:
-      astronautFloat 4s ease-in-out infinite;
+   animation:
+  astronautFloat 4s ease-in-out infinite,
+  astronautDrift 12s ease-in-out infinite;
   }
+
+  @keyframes astronautDrift{
+
+  0%{
+    left:-12px;
+  }
+
+  50%{
+    left:12px;
+  }
+
+  100%{
+    left:-12px;
+  }
+
+}
 
   @keyframes astronautFloat{
 
