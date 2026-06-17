@@ -1,3 +1,19 @@
+// LOADING SCREEN
+const pageLoader = document.getElementById('page-loader');
+if (pageLoader) {
+  const finishLoading = () => {
+    window.setTimeout(() => {
+      document.body.classList.remove('is-loading');
+      document.body.classList.add('is-loaded');
+    }, 650);
+  };
+
+  if (document.readyState === 'complete') {
+    finishLoading();
+  } else {
+    window.addEventListener('load', finishLoading, { once: true });
+  }
+}
 
 
 // INTERACTIVE 3D HERO TEXT
@@ -22,10 +38,7 @@ if (heroTitle && heroTitleWrap) {
   }
 
   window.addEventListener('mousemove', (event) => setTextTarget(event.clientX, event.clientY));
-  window.addEventListener('touchmove', (event) => {
-    const touch = event.touches[0];
-    if (touch) setTextTarget(touch.clientX, touch.clientY);
-  }, { passive: true });
+  
 }
 
 function updateHeroText3D() {
@@ -53,7 +66,9 @@ function updateHeroText3D() {
 
   requestAnimationFrame(updateHeroText3D);
 }
-updateHeroText3D();
+if (window.innerWidth > 700) {
+  updateHeroText3D();
+}
 // MARQUEE
 const gifs1 = [
   'hero-space-voyage-preview-eECLH3Yc','hero-codenest-preview-Cgppc2qV','hero-vex-ventures-preview-BczMFIiw',
@@ -427,11 +442,22 @@ function updateNav() {
 
 // MARQUEE TRANSFORM
 function updateMarquee() {
+
+  if(window.innerWidth < 700){
+    return;
+  }
+
   const r = marqueeSection.getBoundingClientRect();
   const sectionTop = marqueeSection.offsetTop;
-  marqueeOffset = (window.scrollY - sectionTop + window.innerHeight) * 0.3;
-  document.getElementById('row1').style.transform = `translateX(${marqueeOffset - 200}px)`;
-  document.getElementById('row2').style.transform = `translateX(${-(marqueeOffset - 200)}px)`;
+
+  marqueeOffset =
+    (window.scrollY - sectionTop + window.innerHeight) * 0.3;
+
+  document.getElementById('row1').style.transform =
+    `translateX(${marqueeOffset - 200}px)`;
+
+  document.getElementById('row2').style.transform =
+    `translateX(${-(marqueeOffset - 200)}px)`;
 }
 
 // MASTER SCROLL UPDATE
@@ -509,7 +535,11 @@ const obs = new IntersectionObserver(entries => {
 }, {threshold:0, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fadein,.fadein-x-neg,.fadein-x-pos,.skill-3d').forEach(el => obs.observe(el));
 
-window.addEventListener('scroll', updateAll);
+window.addEventListener(
+  'scroll',
+  updateAll,
+  { passive: true }
+);
 
 // INITIAL RUN
 updateAll();
