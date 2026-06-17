@@ -126,7 +126,24 @@ body:not(.is-loading) #page-loader{
   0%{transform:translateX(-115%)}
   100%{transform:translateX(245%)}
 }
-.hero-heading{background:linear-gradient(180deg,#646973 0%,#BBCCD7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-heading{
+  color:#D7E2EA;
+  background:linear-gradient(
+    180deg,
+    #a8c5d8 0%,
+    #d7e2ea 100%
+  );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 0 20px rgba(0,168,182,.15);
+}
+html{
+  color-scheme: dark;
+}
 .contact-btn{background:linear-gradient(123deg,#011F18 7%,#00A8B6 37%,#0054B0 72%,#0063BE 100%);border-radius:9999px;color:#fff;font-family:'Kanit',sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.15em;cursor:pointer;border:none;outline:2px solid rgba(255,255,255,0.7);outline-offset:-3px;box-shadow:0 4px 4px rgba(1,100,181,0.25),inset 4px 4px 12px #1721B1;padding:12px 32px;font-size:.8rem;transition:opacity .2s}
 .contact-btn:hover{opacity:.85}
 .hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:12px;justify-content:flex-end}
@@ -164,7 +181,7 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
   perspective:1200px;
   perspective-origin:50% 42%;
   transform-style:preserve-3d;
-  overflow:hidden;
+  overflow:visible;
   padding:34px 0 46px;
   display:flex;
   justify-content:center;
@@ -246,7 +263,7 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
 .deco-bl{bottom:8%;left:10%;width:clamp(80px,12vw,180px)}
 .deco-br{bottom:8%;right:10%;width:clamp(100px,14vw,220px)}
 .about-content{text-align:center;max-width:600px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:48px}
-.about-h2{font-size:clamp(3rem,12vw,120px);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.04em}
+.about-h2{font-size:clamp(3rem,12vw,120px);font-weight:900;text-transform:uppercase;line-height:.9;opacity:.35;color:#17304a;letter-spacing:-.04em}
 .about-body{color:#D7E2EA;font-weight:500;line-height:1.7;max-width:560px;font-size:clamp(1rem,2vw,1.2rem)}
 .about-body{
   color:#D7E2EA;
@@ -283,6 +300,8 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
   letter-spacing:-.03em;
   margin-bottom:58px;
   text-align:center;
+  opacity:.35;
+  color:#17304a;
   filter:drop-shadow(0 18px 34px rgba(0,168,182,.12));
 }
 
@@ -632,6 +651,8 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
   letter-spacing:-.04em;
   text-align:center;
   margin-bottom:0;
+  opacity:.35;
+  color:#17304a;
   line-height:.9;
 }
 
@@ -712,7 +733,7 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
   .proj-col1 img:first-child{height:90px}
 }/* CONTACT */
 #contact{background:#0C0C0C;padding:80px 40px 60px;text-align:center}
-.contact-h2{font-size:clamp(3rem,12vw,120px);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.9;margin-bottom:40px}
+.contact-h2{font-size:clamp(3rem,12vw,120px);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.9;opacity:.35;color:#17304a;margin-bottom:40px}
 .contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:60px}
 .contact-link{color:#D7E2EA;font-weight:500;font-size:.9rem;text-transform:uppercase;letter-spacing:.1em;padding:10px 24px;border:1px solid rgba(0,168,182,.45);border-radius:99px;box-shadow:0 0 22px rgba(0,168,182,.13), inset 0 0 14px rgba(0,84,176,.08);transition:background .2s,border-color .2s,box-shadow .2s,transform .2s}
 .contact-link:hover{background:rgba(0,168,182,.08);border-color:rgba(215,226,234,.65);box-shadow:0 0 30px rgba(0,168,182,.24),0 0 12px rgba(0,84,176,.22),inset 0 0 18px rgba(0,168,182,.1);transform:translateY(-1px)}
@@ -998,14 +1019,13 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
     padding:75px 0 60px;
 }
   .hero-h1{
-    width:100%;
-    max-width:100%;
-    margin:0 auto;
-    font-size:clamp(3.1rem,16.5vw,5.8rem);
-    line-height:.92;
+    font-size:13vw;
+    line-height:1;
     white-space:normal;
+    width:100%;
     text-align:center;
-  }
+    padding:0 12px;
+}
   .hero-bottom{
     flex-direction:column;
     align-items:flex-start;
@@ -1173,6 +1193,17 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
 
   50%{
     transform:translateY(-14px);
+  }
+
+}
+
+@media(max-width:700px){
+
+  #marquee{
+    min-height:auto !important;
+    height:auto !important;
+    padding:20px 0 !important;
+    overflow:hidden;
   }
 
 }
