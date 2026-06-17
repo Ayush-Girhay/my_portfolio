@@ -1,5 +1,14 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#0C0C0C;font-family:'Kanit',sans-serif;color:#D7E2EA;scroll-behavior:smooth;overflow-x:hidden}
+
+html{
+  color-scheme: dark;
+}
+
+meta[name="color-scheme"]{
+  content: dark;
+}
+
 /* LOADING SCREEN */
 body.is-loading{overflow:hidden}
 #page-loader{
@@ -1221,6 +1230,102 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
 
   #hero-h1-wrap{
     overflow:visible !important;
+  }
+
+}
+
+/* MOBILE ASTRONAUT */
+#mobile-mascot-section{
+  display:none;
+}
+
+@media(max-width:700px){
+
+  #mobile-mascot-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 0 70px;
+    margin-top:-40px;
+}
+
+  .mobile-mascot-wrap{
+    position:relative;
+    width:240px;
+    height:240px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .mascot-glow{
+    position:absolute;
+
+    width:180px;
+height:180px;
+
+    border-radius:50%;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(0,168,182,.35),
+        transparent 70%
+      );
+
+   filter:blur(55px);
+
+    animation:
+      glowPulse 4s ease-in-out infinite;
+  }
+
+  .mobile-mascot{
+    width:190px;
+    position:relative;
+    z-index:2;
+
+    filter:
+      drop-shadow(0 0 25px rgba(0,168,182,.25));
+
+    animation:
+      astronautFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes astronautFloat{
+
+    0%,100%{
+      transform:
+        translateY(0)
+        rotate(-3deg);
+    }
+
+    50%{
+      transform:
+        translateY(-18px)
+        rotate(3deg);
+    }
+  }
+
+  @keyframes glowPulse{
+
+    0%,100%{
+      transform:scale(1);
+      opacity:.6;
+    }
+
+    50%{
+      transform:scale(1.15);
+      opacity:1;
+    }
+  }
+
+}
+
+@media(max-width:700px){
+
+  #marquee{
+    display:none !important;
   }
 
 }
