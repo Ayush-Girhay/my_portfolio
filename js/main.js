@@ -177,194 +177,20 @@ function updateExperienceScroll() {
 }
 // PROJECTS
 const stack = document.getElementById('proj-stack');
-function projectFallbackImage(name, cat, variant = 0) {
-  const key = `${name} ${cat}`.toLowerCase();
-  const palettes = [
-    ['#07171a', '#00a8b6', '#d7e2ea'],
-    ['#08111f', '#0054b0', '#d7e2ea'],
-    ['#101214', '#7dd3fc', '#ffffff']
-  ];
-  const [bg, accent, text] = palettes[variant % palettes.length];
+stack.style.setProperty('--project-count', projects.length);
 
-  const common = `
-    <defs>
-      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="${bg}"/>
-        <stop offset="1" stop-color="#050505"/>
-      </linearGradient>
-      <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="${accent}" stop-opacity=".95"/>
-        <stop offset="1" stop-color="${text}" stop-opacity=".28"/>
-      </linearGradient>
-      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-        <feGaussianBlur stdDeviation="8" result="blur"/>
-        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
-    <rect width="900" height="560" fill="url(#bg)"/>
-    <circle cx="760" cy="92" r="154" fill="${accent}" opacity=".13"/>
-    <circle cx="126" cy="484" r="190" fill="${accent}" opacity=".11"/>
-    <rect x="48" y="48" width="804" height="464" rx="34" fill="none" stroke="${text}" opacity=".13"/>
-  `;
+const projectPin = document.createElement('div');
+projectPin.className = 'proj-pin';
+stack.appendChild(projectPin);
 
-  let art = '';
-  if (key.includes('event')) {
-    art = `
-      <rect x="150" y="122" width="600" height="316" rx="30" fill="#0b1114" stroke="${text}" opacity=".9"/>
-      <rect x="150" y="122" width="600" height="78" rx="30" fill="url(#accent)" opacity=".55"/>
-      <circle cx="250" cy="282" r="44" fill="${accent}" opacity=".75"/>
-      <circle cx="450" cy="282" r="44" fill="${accent}" opacity=".45"/>
-      <circle cx="650" cy="282" r="44" fill="${accent}" opacity=".75"/>
-      <rect x="220" y="365" width="460" height="22" rx="11" fill="${text}" opacity=".22"/>
-    `;
-  } else if (key.includes('ev') || key.includes('charging')) {
-    art = `
-      <path d="M226 336 L278 230 H430 L484 336 Z" fill="#0d151a" stroke="${text}" opacity=".9"/>
-      <circle cx="298" cy="352" r="34" fill="${accent}" opacity=".75"/>
-      <circle cx="430" cy="352" r="34" fill="${accent}" opacity=".75"/>
-      <rect x="568" y="150" width="92" height="250" rx="18" fill="#0d151a" stroke="${text}" opacity=".9"/>
-      <path d="M612 210 L582 284 H622 L594 354" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
-      <path d="M660 238 C760 250 730 360 666 354" fill="none" stroke="${accent}" stroke-width="12" opacity=".65"/>
-    `;
-  } else if (key.includes('house')) {
-    art = `
-      <path d="M188 318 L450 134 L712 318" fill="none" stroke="${accent}" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
-      <rect x="246" y="304" width="408" height="178" rx="20" fill="#0d151a" stroke="${text}" opacity=".9"/>
-      <rect x="322" y="354" width="82" height="82" rx="10" fill="${accent}" opacity=".42"/>
-      <rect x="496" y="354" width="82" height="128" rx="10" fill="${accent}" opacity=".3"/>
-      <path d="M160 470 C300 398 522 538 744 420" fill="none" stroke="${accent}" stroke-width="10" opacity=".45"/>
-    `;
-  } else if (key.includes('parking')) {
-    art = `
-      <rect x="155" y="120" width="590" height="340" rx="26" fill="#0d151a" stroke="${text}" opacity=".9"/>
-      <text x="246" y="346" fill="${accent}" font-family="Arial, sans-serif" font-size="210" font-weight="900">P</text>
-      <path d="M430 156 V424 M568 156 V424" stroke="${text}" stroke-width="8" opacity=".18"/>
-      <rect x="515" y="292" width="118" height="56" rx="18" fill="${accent}" opacity=".7"/>
-      <circle cx="542" cy="356" r="15" fill="${text}" opacity=".75"/>
-      <circle cx="606" cy="356" r="15" fill="${text}" opacity=".75"/>
-    `;
-  } else if (key.includes('robot') || key.includes('robo')) {
-    art = `
-      <rect x="310" y="132" width="280" height="160" rx="38" fill="#0d151a" stroke="${text}" opacity=".9"/>
-      <circle cx="394" cy="210" r="22" fill="${accent}" filter="url(#glow)"/>
-      <circle cx="506" cy="210" r="22" fill="${accent}" filter="url(#glow)"/>
-      <path d="M330 306 L256 410 M420 306 L382 430 M480 306 L522 430 M570 306 L650 410" stroke="${accent}" stroke-width="18" stroke-linecap="round"/>
-      <circle cx="256" cy="410" r="24" fill="${text}" opacity=".42"/>
-      <circle cx="382" cy="430" r="24" fill="${text}" opacity=".42"/>
-      <circle cx="522" cy="430" r="24" fill="${text}" opacity=".42"/>
-      <circle cx="650" cy="410" r="24" fill="${text}" opacity=".42"/>
-    `;
-  } else if (key.includes('stream') || key.includes('server')) {
-    art = `
-      <rect x="170" y="132" width="230" height="296" rx="24" fill="#0d151a" stroke="${text}" opacity=".9"/>
-      <rect x="500" y="132" width="230" height="296" rx="24" fill="#0d151a" stroke="${text}" opacity=".9"/>
-      <path d="M400 220 C456 188 444 188 500 220 M400 280 C466 240 434 240 500 280 M400 340 C456 372 444 372 500 340" fill="none" stroke="${accent}" stroke-width="12" stroke-linecap="round" opacity=".78"/>
-      <polygon points="250,230 250,330 338,280" fill="${accent}" filter="url(#glow)"/>
-      <rect x="548" y="200" width="134" height="18" rx="9" fill="${accent}" opacity=".6"/>
-      <rect x="548" y="254" width="134" height="18" rx="9" fill="${text}" opacity=".22"/>
-      <rect x="548" y="308" width="134" height="18" rx="9" fill="${text}" opacity=".22"/>
-    `;
-  } else {
-    art = `
-      <path d="M184 366 C260 188 410 176 470 304 C536 446 668 352 724 196" fill="none" stroke="${accent}" stroke-width="20" stroke-linecap="round" filter="url(#glow)"/>
-      <circle cx="184" cy="366" r="28" fill="${text}" opacity=".45"/>
-      <circle cx="470" cy="304" r="28" fill="${text}" opacity=".45"/>
-      <circle cx="724" cy="196" r="28" fill="${text}" opacity=".45"/>
-    `;
-  }
-
-  const caption = cat.length > 30 ? cat.slice(0, 27) + '...' : cat;
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
-      ${common}
-      ${art}
-      <text x="64" y="500" fill="${text}" font-family="Arial, sans-serif" font-size="22" font-weight="700" opacity=".78">${caption}</text>
-      <rect x="64" y="516" width="160" height="4" rx="2" fill="${accent}" opacity=".9"/>
-    </svg>
-  `;
-
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-}
-function projectImageSrc(project, variant = 0) {
-  const name = project.name.toLowerCase();
-  if (name.includes('ev dynamic pricing') || name.includes('video streaming')) {
-    return projectFallbackImage(project.name, project.cat, variant);
-  }
-  return project.imgs[variant] || projectFallbackImage(project.name, project.cat, variant);
-}
-const projectMediaAssets = {
-  EventSphere: {
-    image: 'assets/eventsphere-1.png',
-    video: 'assets/eventsphere-video.mp4',
-    alt: 'EventSphere project dashboard'
-  },
-  'EV Dynamic Pricing': {
-    image: 'assets/ev-dynamic-pricing.png',
-    video: 'assets/ev-dynamic-pricing.mp4',
-    alt: 'EV Dynamic Pricing project dashboard'
-  },
-  'House Price Prediction': {
-    image: 'assets/house-price-prediction.png',
-    video: 'assets/house-price-prediction.mp4',
-    alt: 'House Price Prediction project dashboard'
-  },
-  'Dynamic Pricing Parking Lots': {
-    image: 'assets/dynamic-pricing-parking-lots.png',
-    video: 'assets/dynamic-pricing-parking-lots.mp4',
-    alt: 'Dynamic Pricing Parking Lots project dashboard'
-  },
-  'RoboDog Quadruped Robot': {
-    image: 'assets/robodog-quadruped-robot.png',
-    video: 'assets/robodog-quadruped-robot.mp4',
-    alt: 'RoboDog Quadruped Robot project dashboard'
-  },
-  'Video Streaming Web Server': {
-    image: 'assets/video-streaming-web-server.png',
-    video: 'assets/video-streaming-web-server.mp4',
-    alt: 'Video Streaming Web Server project dashboard'
-  }
-};
-
-function hasProjectMedia(p) {
-  return Boolean(projectMediaAssets[p.name]);
-}
-
-function projectMediaMarkup(p) {
-  const media = projectMediaAssets[p.name];
-
-  if (media) {
-    return `
-      <div class="proj-card-imgs project-real-media">
-        <div class="proj-col1 project-single-image">
-          <img src="${media.image}" alt="${media.alt}">
-        </div>
-        <div class="proj-col2 project-video-panel">
-          <video class="proj-video" autoplay muted loop playsinline preload="metadata" poster="${media.image}">
-            <source src="${media.video}" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    `;
-  }
-
-  return `
-    <div class="proj-card-imgs">
-      <div class="proj-col1">
-        <img src="${projectImageSrc(p, 0)}" alt="${p.name}" onerror="this.onerror=null;this.src=projectFallbackImage(this.dataset.name,this.dataset.cat,0)" data-name="${p.name}" data-cat="${p.cat}">
-        <img src="${projectImageSrc(p, 1)}" alt="${p.name}" onerror="this.onerror=null;this.src=projectFallbackImage(this.dataset.name,this.dataset.cat,1)" data-name="${p.name}" data-cat="${p.cat}">
-      </div>
-      <div class="proj-col2">
-        <img src="${projectImageSrc(p, 2)}" alt="${p.name}" onerror="this.onerror=null;this.src=projectFallbackImage(this.dataset.name,this.dataset.cat,2)" data-name="${p.name}" data-cat="${p.cat}">
-      </div>
-    </div>
-  `;
-}
 projects.forEach((p, i) => {
-  const slot = document.createElement('div');
-  slot.className = 'proj-slot';
+  const card = document.createElement('div');
+  card.className = 'proj-card';
+  card.id = `pc${i}`;
+  card.style.setProperty('--stack-index', i);
+  card.style.zIndex = i + 1;
 
-  slot.innerHTML = `
-    <div class="proj-card ${hasProjectMedia(p) ? 'media-project-card' : ''} ${p.name === 'EventSphere' ? 'eventsphere-card' : ''}" id="pc${i}">
+  card.innerHTML = `
       <div class="proj-card-top">
         <div class="proj-card-num">${p.id}</div>
         <div class="proj-card-meta">
@@ -377,38 +203,140 @@ projects.forEach((p, i) => {
         </div>
       </div>
 
-      <div class="proj-tech-row">
-        ${p.tech.map(t => `<span class="proj-tech">${t}</span>`).join('')}
-      </div>
+     
 
-      <p class="proj-card-desc">${p.desc}</p>
+     <div class="proj-body">
 
-      ${projectMediaMarkup(p)}
+    <div class="proj-left">
+
+    <p class="proj-card-desc">
+        ${p.desc}
+    </p>
+
+    <div class="proj-features">
+
+        <div class="feature-title">
+            Key Features
+        </div>
+
+        ${p.features.map(feature => `
+            <div class="feature-item">
+                ✓ ${feature}
+            </div>
+        `).join('')}
+
     </div>
+
+    <div class="proj-tech-row">
+
+        ${p.tech.map(tech => `
+            <span class="proj-tech">
+                ${tech}
+            </span>
+        `).join('')}
+
+    </div>
+
+</div>
+
+    <div class="proj-right">
+
+        <div class="project-terminal">
+
+            <div class="terminal-header">
+
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+
+                <span class="terminal-title">
+                    ${p.name}
+                </span>
+
+            </div>
+
+            <pre class="terminal-output"></pre>
+
+        </div>
+
+    </div>
+
+</div>
   `;
 
-  stack.appendChild(slot);
+  projectPin.appendChild(card);
+
+  typeTerminal(
+    card.querySelector(".terminal-output"),
+    p.terminal
+);
 });
+
+async function typeTerminal(el, lines){
+
+    while(true){
+
+        el.textContent="";
+
+        for(const line of lines){
+
+            for(const ch of line){
+
+                el.textContent+=ch;
+
+                await new Promise(r=>setTimeout(r,25));
+
+            }
+
+            el.textContent += "\n";
+
+el.scrollTop = el.scrollHeight;
+
+            await new Promise(r=>setTimeout(r,180));
+
+        }
+
+        await new Promise(r=>setTimeout(r,1800));
+
+    }
+
+}
 
 function updateProjectScales() {
   const cards = document.querySelectorAll('.proj-card');
+  if (!stack || !cards.length) return;
+
+  const rect = stack.getBoundingClientRect();
+  const pin = stack.querySelector('.proj-pin');
+  const isBefore = rect.top > 0;
+  const isAfter = rect.bottom <= window.innerHeight;
+  const maxProgress = Math.max(0, cards.length - 1);
+  const progress = Math.max(
+    0,
+    Math.min(maxProgress, -rect.top / window.innerHeight)
+  );
+
+  pin.classList.toggle('is-fixed', !isBefore && !isAfter);
+  pin.classList.toggle('is-bottom', isAfter);
 
   cards.forEach((card, index) => {
-    const rect = card.parentElement.getBoundingClientRect();
+    const distance = index - progress;
+    const translateY = distance > 0 ? distance * window.innerHeight : 0;
+    const isStacked = progress >= index;
+    const isActive = Math.round(progress) === index;
 
-    const progress = Math.max(
-      0,
-      Math.min(1, -rect.top / window.innerHeight)
-    );
-
-    const scale = 1 - (progress * 0.08);
-
-    card.style.transform =
-      `scale(${scale}) translateY(${progress * -30}px)`;
-
-    card.style.zIndex = cards.length - index;
+    card.classList.toggle('is-stacked', isStacked);
+    card.classList.toggle('is-active', isActive);
+    card.style.transform = `translateY(${translateY}px)`;
+    card.style.zIndex = index + 1;
   });
 }
+
+function animateProjectStack() {
+  updateProjectScales();
+  requestAnimationFrame(animateProjectStack);
+}
+animateProjectStack();
 
 // PORTRAIT MAGNET (optional element, may not exist)
 const portrait = document.getElementById('portrait');
@@ -499,6 +427,7 @@ skillsData.forEach((s,i) => {
 
   sl.appendChild(d);
 });
+
 function updateSkillDepth() {
   document.querySelectorAll('.skill-group').forEach((card, index) => {
     const rect = card.getBoundingClientRect();
@@ -536,7 +465,15 @@ setupSkillCards();
 
 // FADE-IN OBSERVER
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.classList.contains('skill-group')) {
+        e.target.classList.add('skill-revealed');
+      }
+      obs.unobserve(e.target);
+    }
+  });
 }, {threshold:0, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fadein,.fadein-x-neg,.fadein-x-pos,.skill-3d').forEach(el => obs.observe(el));
 
@@ -552,7 +489,12 @@ updateAll();
 setTimeout(() => {
   document.querySelectorAll('.fadein,.fadein-x-neg,.fadein-x-pos,.skill-3d').forEach(el => {
     const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight) el.classList.add('visible');
+    if (r.top < window.innerHeight) {
+      el.classList.add('visible');
+      if (el.classList.contains('skill-group')) {
+        el.classList.add('skill-revealed');
+      }
+    }
   });
 }, 100);
 
@@ -607,6 +549,3 @@ if(window.innerWidth < 700){
   },3000);
 
 }
-
-
-

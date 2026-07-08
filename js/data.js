@@ -8,14 +8,15 @@ const skillsData = [
 ];
 
 const expData = [
-  {num:'01', name:'Tata Group - Forage', role:'GenAI-Powered Data Analytics Simulation - EDA, risk profiling, AI-driven collection strategies, business reporting.', period:'Jun 2023 - Jul 2023'},
-  {num:'02', name:'Accenture - Forage', role:'Software Engineering Simulation - Architecture, secure coding, agile development, testing modules.', period:'Jun 2024 - Jul 2024'},
-  {num:'03', name:'Deloitte - Forage', role:'Data Analytics Simulation - Forensic tech, Tableau dashboard, Excel-based data classification.', period:'Jun 2025 - Jul 2025'},
-  {num:'04', name:'Captain -Hockey IIT Roorkee', role:'NSO proficiency holder. Captain of institute hockey team, leading with discipline and strategy.', period:'MAY 2026 - Present'},
-  {num:'05', name:'Member - MARS, IIT Roorkee', role:'Models & Robotics Section. CAD with SolidWorks & Fusion 360, AI/ML integration, robot prototyping.', period:'Jun 2024 - Present'},
+  {num:'01', name:'TRS Consultant [Consultant Intern ]', role:'Assisted in business consulting projects by conducting research, analyzing client requirements, preparing reports, and supporting solution development to improve operational efficiency.', period:'MAY 2026 - Jul 2026'},
+  {num:'02', name:'Curious About Sales [AI Engineer Intern]', role:'Developed AI-powered solutions using Python and Generative AI tools, worked on automation workflows, prompt engineering, and AI prototypes to enhance business processes and productivity.', period:'FEB 2026 - APR 2026'},
+  {num:'03', name:'Tata Group - Forage', role:'GenAI-Powered Data Analytics Simulation - EDA, risk profiling, AI-driven collection strategies, business reporting.', period:'Jun 2023 - Jul 2023'},
+  {num:'04', name:'Accenture - Forage', role:'Software Engineering Simulation - Architecture, secure coding, agile development, testing modules.', period:'Jun 2024 - Jul 2024'},
+  {num:'05', name:'Deloitte - Forage', role:'Data Analytics Simulation - Forensic tech, Tableau dashboard, Excel-based data classification.', period:'Jun 2025 - Jul 2025'},
 ];
 
 const projects = [
+  
   {
     id:'01',
     cat:'Full-Stack Web Application',
@@ -28,7 +29,32 @@ const projects = [
   'https://source.unsplash.com/800x500/?event,conference,dashboard&sig=11',
   'https://source.unsplash.com/800x500/?people,event,networking&sig=12',
   'https://source.unsplash.com/800x500/?ticket,concert,event&sig=13'
-]
+       
+],
+
+features:[
+"Secure Authentication",
+"QR Attendance Tracking",
+"Media Upload & Sharing",
+"Admin Dashboard"
+],
+
+terminal:[
+"> npm run dev",
+"",
+"✓ Vite v7.2.0",
+"",
+"MongoDB Connected",
+"JWT Authentication Ready",
+"",
+"QR Attendance Enabled",
+"Media Upload Ready",
+"",
+"Listening on :3000",
+"",
+"✓ Server Running"
+],
+
   },
 
   {
@@ -43,7 +69,29 @@ const projects = [
   'https://source.unsplash.com/800x500/?electric,vehicle,charging&sig=21',
   'https://source.unsplash.com/800x500/?ev,charger,station&sig=22',
   'https://source.unsplash.com/800x500/?data,analytics,chart&sig=23'
-]
+],
+features:[
+"Demand Forecasting",
+"Dynamic Tariff Updates",
+"Charging Queue Analysis",
+"ML-Based Pricing"
+],
+
+terminal:[
+"> python pricing.py",
+"",
+"Loading charging data...",
+"",
+"Demand Forecast Ready",
+"",
+"Station #07",
+"Queue: 14 Vehicles",
+"",
+"Current Price",
+"₹12.80 / kWh",
+"",
+"✓ Pricing Updated"
+],
   },
 
   {
@@ -58,7 +106,28 @@ const projects = [
   'https://source.unsplash.com/800x500/?modern,house,real,estate&sig=31',
   'https://source.unsplash.com/800x500/?city,satellite,map&sig=32',
   'https://source.unsplash.com/800x500/?housing,architecture&sig=33'
-]
+],
+features:[
+"XGBoost Model",
+"Satellite Image Features",
+"SHAP Explainability",
+"Multimodal Learning"
+],
+
+terminal:[
+"> python predict.py",
+"",
+"Loading XGBoost Model...",
+"",
+"Satellite Features Loaded",
+"",
+"Predicted Price",
+"₹84,25,000",
+"",
+"Confidence: 96.4%",
+"",
+"✓ Prediction Complete"
+],
   },
 
   {
@@ -73,7 +142,27 @@ const projects = [
   'https://source.unsplash.com/800x500/?parking,lot,cars&sig=41',
   'https://source.unsplash.com/800x500/?traffic,city,road&sig=42',
   'https://source.unsplash.com/800x500/?smart,city,parking&sig=43'
-]
+],
+features:[
+"Real-time Pricing",
+"Traffic Analysis",
+"Occupancy Prediction",
+"Revenue Optimization"
+],
+
+terminal:[
+"> pathway run",
+"",
+"Parking Lot A",
+"",
+"Occupancy : 92%",
+"Traffic : High",
+"",
+"Price Updated",
+"₹65 → ₹92",
+"",
+"✓ Live Stream Active"
+],
   },
 
   {
@@ -88,7 +177,27 @@ const projects = [
   'https://source.unsplash.com/800x500/?robot,dog,technology&sig=51',
   'https://source.unsplash.com/800x500/?robotics,engineering&sig=52',
   'https://source.unsplash.com/800x500/?cad,mechanical,design&sig=53'
-]
+],
+features:[
+"Quadruped Navigation",
+"ROS2 Integration",
+"CAD Design",
+"Hardware Control"
+],
+
+terminal:[
+"> ros2 launch robodog",
+"",
+"Camera ✓",
+"Lidar ✓",
+"IMU ✓",
+"",
+"Walking...",
+"",
+"Speed : 0.8 m/s",
+"",
+"Battery : 84%"
+],
   },
 
   {
@@ -103,6 +212,30 @@ const projects = [
   'https://source.unsplash.com/800x500/?video,streaming,server&sig=61',
   'https://source.unsplash.com/800x500/?network,datacenter&sig=62',
   'https://source.unsplash.com/800x500/?code,server,technology&sig=63'
-]
+],
+
+features:[
+"ESP32-CAM Streaming",
+"HTTP Video Server",
+"Socket Communication",
+"Real-time Wi-Fi Feed"
+],
+
+terminal:[
+"> python server.py",
+"",
+"Starting Server...",
+"",
+"Listening :8080",
+"",
+"ESP32 Connected",
+"",
+"Streaming MJPEG",
+"",
+"FPS : 30",
+"Latency : 82 ms",
+"",
+"✓ Stream Active"
+],
   }
 ];
