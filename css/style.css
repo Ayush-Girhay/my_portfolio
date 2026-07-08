@@ -1523,3 +1523,28 @@ height:180px;
     }
 
 }
+
+/* =========================
+   Mobile Navbar
+========================= */
+
+@media (max-width:768px){
+
+    #nav{
+
+        transition:transform .35s ease,
+                   opacity .35s ease;
+
+    }
+
+    #nav.nav-hidden{
+
+        transform:translateY(-120%);
+
+        opacity:0;
+
+        pointer-events:none;
+
+    }
+
+}

@@ -549,3 +549,27 @@ if(window.innerWidth < 700){
   },3000);
 
 }
+
+/* =========================
+   Mobile Navbar Hide
+========================= */
+
+if (window.innerWidth <= 768) {
+
+    const nav = document.getElementById("nav");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 20) {
+
+            nav.classList.add("nav-hidden");
+
+        } else {
+
+            nav.classList.remove("nav-hidden");
+
+        }
+
+    });
+
+}
