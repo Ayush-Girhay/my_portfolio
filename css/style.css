@@ -1483,23 +1483,16 @@ height:180px;
 
     flex:1;
 
-    padding:22px;
+    overflow-y:auto;
 
-    color:#6ef38a;
+    overflow-x:hidden;
 
-    font-family:"JetBrains Mono", monospace;
-
-    font-size:.9rem;
+    font-size:.82rem;
 
     line-height:1.7;
 
     white-space:pre-wrap;
 
-    overflow-y:auto;       /* Scroll inside terminal */
-
-    overflow-x:hidden;
-
-    scrollbar-width:none;  /* Firefox */
 }
 
 .terminal-output::-webkit-scrollbar{
@@ -1545,6 +1538,55 @@ height:180px;
 
         pointer-events:none;
 
+    }
+
+}
+
+@media (max-width:700px){
+
+    .proj-card{
+        min-height:auto;
+        padding:22px;
+    }
+
+    .proj-body{
+        display:flex;
+        flex-direction:column;
+        gap:24px;
+    }
+
+    .proj-left{
+        width:100%;
+    }
+
+    .proj-right{
+        display:block;
+        width:100%;
+    }
+
+    .project-terminal{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:320px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+    .terminal-output{
+        height:250px;
+        overflow:auto;
+        font-size:.82rem;
+        line-height:1.7;
+        white-space:pre-wrap;
+    }
+
+    .proj-card-desc{
+        max-width:100%;
+    }
+
+    .proj-tech-row{
+        margin-top:18px;
     }
 
 }
