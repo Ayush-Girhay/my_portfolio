@@ -1483,16 +1483,23 @@ height:180px;
 
     flex:1;
 
-    overflow-y:auto;
+    padding:22px;
 
-    overflow-x:hidden;
+    color:#6ef38a;
 
-    font-size:.82rem;
+    font-family:"JetBrains Mono", monospace;
+
+    font-size:.9rem;
 
     line-height:1.7;
 
     white-space:pre-wrap;
 
+    overflow-y:auto;       /* Scroll inside terminal */
+
+    overflow-x:hidden;
+
+    scrollbar-width:none;  /* Firefox */
 }
 
 .terminal-output::-webkit-scrollbar{
