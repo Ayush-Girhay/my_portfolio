@@ -695,7 +695,7 @@ nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px)}
 .proj-stack{
     position:relative;
     margin-top:80px;
-    height:calc((var(--project-count) + 0.35) * 100svh);
+    height:calc((var(--project-count) + 0.9) * 100svh);
     isolation:isolate;
     overflow:hidden;
 }
@@ -1390,10 +1390,10 @@ height:180px;
     }
 
     .proj-card{
-        width:100%;
-        padding:20px;
-        min-height:auto;
-    }
+    width:100%;
+    height:calc(100svh - 120px);
+    min-height:unset;
+}
 
     .proj-card-desc{
         max-width:100%;
@@ -1555,6 +1555,9 @@ height:180px;
     .proj-card{
         min-height:500px;
         padding:22px;
+        overflow:hidden;
+        backface-visibility:hidden;
+    transform-style:preserve-3d;
         
     }
 
