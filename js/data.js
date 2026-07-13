@@ -8,8 +8,8 @@ const skillsData = [
 ];
 
 const expData = [
-  {num:'01', name:'TRS Consultant [Consultant Intern ]', role:'Assisted in business consulting projects by conducting research, analyzing client requirements, preparing reports, and supporting solution development to improve operational efficiency.', period:'MAY 2026 - Jul 2026'},
-  {num:'02', name:'Curious About Sales [AI Engineer Intern]', role:'Developed AI-powered solutions using Python and Generative AI tools, worked on automation workflows, prompt engineering, and AI prototypes to enhance business processes and productivity.', period:'FEB 2026 - APR 2026'},
+  {num:'01', name:'TSR Consultant [AI & Full Stack Developer]', role:'Developed and enhanced AI-powered and full-stack web solutions for client businesses by building responsive applications, implementing backend APIs, integrating AI features, automating workflows, and collaborating with teams to improve business processes and user experience.', period:'MAY 2026 - Jul 2026'},
+  {num:'02', name:'Curious About Sales [AI Intern]', role:'Designed AI-driven sales automation workflows, automated lead enrichment and qualification using n8n, integrated CRM and outreach platforms, and optimized multi-channel campaigns through data analysis and workflow automation.', period:'FEB 2026 - APR 2026'},
   {num:'03', name:'Tata Group - Forage', role:'GenAI-Powered Data Analytics Simulation - EDA, risk profiling, AI-driven collection strategies, business reporting.', period:'Jun 2023 - Jul 2023'},
   {num:'04', name:'Accenture - Forage', role:'Software Engineering Simulation - Architecture, secure coding, agile development, testing modules.', period:'Jun 2024 - Jul 2024'},
   {num:'05', name:'Deloitte - Forage', role:'Data Analytics Simulation - Forensic tech, Tableau dashboard, Excel-based data classification.', period:'Jun 2025 - Jul 2025'},
